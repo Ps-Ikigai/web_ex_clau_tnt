@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cálculo de compras</title>
+</head>
+<body>
+    <h1>Cálculo de compras</h1>
+    <form method="POST">
+        <label for="nombre">Ingresa tu nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="edad">Ingresa tu edad:</label><br>
+        <input type="number" id="edad" name="edad" required><br><br>
+
+        <label for="cantidad">Ingresa la cantidad de tarros de pinturas a comprar:</label><br>
+        <input type="number" id="cantidad" name="cantidad" required><br><br>
+
+        <button type="submit">Calcular</button>
+    </form>
+
+    {{% if nombre %}
+        <h2>Resultado:</h2>
+        <p>Nombre del comprador: {{ nombre }}</p>
+        <p>Total sin descuento: ${{ total_sin_descuento }}</p>
+        {% if descuento_aplicado > 0 %}
+            <p>Descuento aplicado: {{ descuento_aplicado }}%</p>
+            <p>Total a pagar con descuento: ${{ total_con_descuento }}</p>
+        {% else %}
+            <p>No se aplicó ningún descuento.</p>
+            <p>Total a pagar: ${{ total_sin_descuento }}</p>
+        {% endif %}
+    {% endif %}
+
+    <br>
+    <a href="/">Volver al menú principal</a>
+</body>
+</html>
+
+
